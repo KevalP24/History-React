@@ -1,18 +1,26 @@
 import React from "react";
+import { Accordion as MUIAccordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const AccordionItem = ({ title, content, img, isActive, onClick }) => {
   return (
-    <div id={`${title.replace(/\s+/g, '').toLowerCase()}Item`}>
-      <button className={`accordion-btn ${isActive ? 'active' : ''}`} onClick={onClick}>
+    <MUIAccordion expanded={isActive} onChange={onClick}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls={`${title.replace(/\s+/g, '').toLowerCase()}Panel-content`}
+        id={`${title.replace(/\s+/g, '').toLowerCase()}Panel-header`}
+      >
         <div className="image-container">
-          <img className="img-minimized" src={img} alt="Minimized" />
+          <img src={img} alt={`${title}`} className="img-minimized" />
         </div>
-        <span>{title}</span>
-      </button>
-      <div className={`panel ${isActive ? 'active' : ''}`} id={`${title.replace(/\s+/g, '').toLowerCase()}Panel`}>
-        <div className="mySlides">{content}</div>
-      </div>
-    </div>
+        <Typography variant="h6">{title}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <div className="accordionContent">
+          {content}
+        </div>
+      </AccordionDetails>
+    </MUIAccordion>
   );
 };
 

@@ -103,18 +103,16 @@ const Accordion = () => {
 
   return (
     <div className="accordion" id="accordionComponent">
-      {
-        accordionData.map(({ title, content, img }, index) => (
-          <AccordionItem 
-            key={index} 
-            title={title} 
-            content={content} 
-            img={img} 
-            isActive={index === activeIndex}
-            onClick={() => toggleAccordion(index)}
-          />
-        ))
-      }
+      {accordionData.map(({ title, content, img }, index) => (
+        <AccordionItem 
+          key={index} 
+          title={title} 
+          content={content} 
+          img={img} 
+          isActive={index === activeIndex}
+          onClick={() => toggleAccordion(index)}
+        />
+      ))}
     </div>
   );
 };

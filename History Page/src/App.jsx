@@ -1,16 +1,15 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import Accordion from "./components/Accordion";
+import { Container } from "@mui/material";
 import "./index.css";
 
 const App = () => {
   return (
-    <div id="appComponent">
-      <Navbar />
-      <div className="accordion" id="accordionApp">
+    <Container style={{ maxWidth: "1200px", margin: "0 auto" }}>
+      <div id="appComponent">
         <Accordion />
       </div>
-    </div>
+    </Container>
   );
 };
 
